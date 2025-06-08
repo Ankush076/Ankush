@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neelmani Construction - Building Your Dreams</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a5276;
+            --secondary: #f39c12;
+            --light: #f8f9fa;
+            --dark: #343a40;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--dark);
+        }
+        
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 2rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary);
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('construction-hero.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #e67e22;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .about {
+            padding: 5rem 0;
+            background-color: var(--light);
+        }
+        
+        .section-title {
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .services {
+            padding: 5rem 0;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .service-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .service-card:hover .service-image img {
+            transform: scale(1.1);
+        }
+        
+        .service-content {
+            padding: 1.5rem;
+        }
+        
+        .service-content h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .contact {
+            padding: 5rem 0;
+            background-color: var(--light);
+        }
+        
+        .contact-container {
+            display: flex;
+            gap: 3rem;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-form {
+            flex: 1;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Open Sans', sans-serif;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+        }
+        
+        .info-icon {
+            background-color: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 0 1rem;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column {
+            flex: 1;
+            text-align: left;
+        }
+        
+        .footer-column h3 {
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+        
+        .social-links a {
+            color: white;
+            background-color: rgba(255,255,255,0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary);
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+            }
+            
+            .about-content,
+            .contact-container {
+                flex-direction: column;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            
+            .footer-column {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">NEELMANI<span>CONSTRUCTION</span></div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div>
+                    <h1>Building Dreams, Crafting Quality</h1>
+                    <p>Neelmani Construction brings your architectural visions to life with unmatched expertise and commitment to excellence in every project we undertake.</p>
+                    <a href="#contact" class="btn">Get a Free Quote</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">About Us</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Trusted Construction Experts Since 2005</h3>
+                    <p>Founded by Mr. Bachu Singh, Neelmani Construction has been a cornerstone of quality construction in the region for nearly two decades. Our commitment to excellence, attention to detail, and customer satisfaction sets us apart in the industry.</p>
+                    <p>With a team of skilled professionals and a portfolio of successful projects, we take pride in transforming our clients' dreams into reality. From residential homes to commercial complexes, we approach each project with the same level of dedication and craftsmanship.</p>
+                    <p>Our philosophy is simple: quality construction, transparent processes, and lasting relationships with our clients.</p>
+                </div>
+                <div class="about-image">
+                    <img src="construction-team.jpg" alt="Neelmani Construction Team">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="residential-construction.jpg" alt="Residential Construction">
+                    </div>
+                    <div class="service-content">
+                        <h3>Residential Construction</h3>
+                        <p>Custom home building, renovations, and extensions tailored to your lifestyle and preferences with the highest quality materials.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="commercial-construction.jpg" alt="Commercial Construction">
+                    </div>
+                    <div class="service-content">
+                        <h3>Commercial Construction</h3>
+                        <p>Office buildings, retail spaces, and commercial complexes designed for functionality, aesthetics, and long-term value.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="interior-design.jpg" alt="Interior Design">
+                    </div>
+                    <div class="service-content">
+                        <h3>Interior Design & Fit-outs</h3>
+                        <p>Complete interior solutions that reflect your brand identity or personal style, from concept to completion.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="renovation.jpg" alt="Renovation Services">
+                    </div>
+                    <div class="service-content">
+                        <h3>Renovation Services</h3>
+                        <p>Transform your existing space with our comprehensive renovation services, including structural changes and modern upgrades.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="project-management.jpg" alt="Project Management">
+                    </div>
+                    <div class="service-content">
+                        <h3>Project Management</h3>
+                        <p>End-to-end project management services ensuring your construction project stays on time and within budget.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="consulting.jpg" alt="Construction Consulting">
+                    </div>
+                    <div class="service-content">
+                        <h3>Construction Consulting</h3>
+                        <p>Expert advice on design feasibility, material selection, and construction best practices for your project.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h3>Our Office</h3>
+                            <p>123 Construction Avenue<br>Patna, Bihar 800001</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div>
+                            <h3>Call Us</h3>
+                            <p>+91 7060331329 (Mr. Bachu Singh)</p>
+                            <p>+91 9876543210 (Office)</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h3>Email Us</h3>
+                            <p>info@neelmaniconstruction.com</p>
+                            <p>queries@neelmaniconstruction.com</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h3>Working Hours</h3>
+                            <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                            <p>Saturday: 10:00 AM - 4:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service Interested In</label>
+                            <select id="service" name="service" class="form-control">
+                                <option value="">Select a service</option>
+                                <option value="residential">Residential Construction</option>
+                                <option value="commercial">Commercial Construction</option>
+                                <option value="interior">Interior Design</option>
+                                <option value="renovation">Renovation Services</option>
+                                <option value="management">Project Management</option>
+                                <option value="consulting">Construction Consulting</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                    <div id="responseMessage" style="margin-top: 1rem;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Neelmani Construction</h3>
+                    <p>Building dreams with integrity, quality, and innovation since 2005. Your trusted partner in construction.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li><a href="#home" style="color: white; text-decoration: none;">Home</a></li>
+                        <li><a href="#about" style="color: white; text-decoration: none;">About Us</a></li>
+                        <li><a href="#services" style="color: white; text-decoration: none;">Services</a></li>
+                        <li><a href="#projects" style="color: white; text-decoration: none;">Projects</a></li>
+                        <li><a href="#contact" style="color: white; text-decoration: none;">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li>Residential Construction</li>
+                        <li>Commercial Buildings</li>
+                        <li>Interior Design</li>
+                        <li>Renovation Services</li>
+                        <li>Project Management</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Neelmani Construction. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    
+    <!-- AI Chatbot Integration -->
+    <script>
+        // AI Chatbot functionality
+        const chatbot = {
+            init: function() {
+                this.setupChatWidget();
+                this.setupContactForm();
+            },
+            
+            setupChatWidget: function() {
+                // Create chat widget HTML
+                const chatWidget = document.createElement('div');
+                chatWidget.id = 'chat-widget';
+                chatWidget.innerHTML = `
+                    <div id="chat-header">
+                        <h4>Neelmani Construction Assistant</h4>
+                        <button id="close-chat">×</button>
+                    </div>
+                    <div id="chat-messages"></div>
+                    <div id="chat-input">
+                        <input type="text" id="user-message" placeholder="Type your question...">
+                        <button id="send-message">Send</button>
+                    </div>
+                `;
+                document.body.appendChild(chatWidget);
+                
+                // Add toggle button
+                const chatButton = document.createElement('div');
+                chatButton.id = 'chat-button';
+                chatButton.innerHTML = '<i class="fas fa-comments"></i>';
+                document.body.appendChild(chatButton);
+                
+                // Event listeners
+                chatButton.addEventListener('click', this.toggleChat);
+                document.getElementById('close-chat').addEventListener('click', this.toggleChat);
+                document.getElementById('send-message').addEventListener('click', this.handleUserMessage);
+                document.getElementById('user-message').addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') this.handleUserMessage();
+                });
+            },
+            
+            toggleChat: function() {
+                const widget = document.getElementById('chat-widget');
+                widget.classList.toggle('active');
+            },
+            
+            handleUserMessage: function() {
+                const userInput = document.getElementById('user-message');
+                const message = userInput.value.trim();
+                
+                if (message) {
+                    // Display user message
+                    chatbot.displayMessage(message, 'user');
+                    
+                    // Get AI response
+                    const aiResponse = chatbot.generateResponse(message);
+                    
+                    // Display AI response after a short delay
+                    setTimeout(() => {
+                        chatbot.displayMessage(aiResponse, 'ai');
+                    }, 800);
+                    
+                    // Clear input
+                    userInput.value = '';
+                }
+            },
+            
+            displayMessage: function(message, sender) {
+                const messagesContainer = document.getElementById('chat-messages');
+                const messageElement = document.createElement('div');
+                messageElement.classList.add('message', sender);
+                messageElement.textContent = message;
+                messagesContainer.appendChild(messageElement);
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            },
+            
+            generateResponse: function(userMessage) {
+                // Simple AI response logic - in a real implementation, this would connect to an AI service
+                const lowerMessage = userMessage.toLowerCase();
+                
+                if (lowerMessage.includes('hello') || lowerMessage.includes('hi')) {
+                    return "Hello! Welcome to Neelmani Construction. How can I assist you today?";
+                } else if (lowerMessage.includes('service') || lowerMessage.includes('offer')) {
+                    return "We offer residential and commercial construction, interior design, renovation services, project management, and construction consulting. Which service are you interested in?";
+                } else if (lowerMessage.includes('contact') || lowerMessage.includes('number')) {
+                    return "You can reach Mr. Bachu Singh directly at +91 7060331329 or our office at +91 9876543210. Our email is info@neelmaniconstruction.com.";
+                } else if (lowerMessage.includes('address') || lowerMessage.includes('location')) {
+                    return "Our office is located at 123 Construction Avenue, Patna, Bihar 800001.";
+                } else if (lowerMessage.includes('time') || lowerMessage.includes('hour')) {
+                    return "We're open Monday to Friday from 9:00 AM to 6:00 PM, and Saturdays from 10:00 AM to 4:00 PM.";
+                } else if (lowerMessage.includes('quote') || lowerMessage.includes('price')) {
+                    return "For a personalized quote, please provide details about your project in our contact form or call us directly. We'd be happy to discuss your requirements.";
+                } else if (lowerMessage.includes('project') || lowerMessage.includes('work')) {
+                    return "We've completed numerous residential and commercial projects across the region. Would you like information about our past projects?";
+                } else {
+                    return "Thank you for your message. For detailed inquiries, please fill out our contact form or call us directly at +91 7060331329. Our team will be happy to assist you.";
+                }
+            },
+            
+            setupContactForm: function() {
+                const contactForm = document.getElementById('contactForm');
+                const responseMessage = document.getElementById('responseMessage');
+                
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Get form data
+                    const formData = new FormData(contactForm);
+                    const data = {};
+                    formData.forEach((value, key) => {
+                        data[key] = value;
+                    });
+                    
+                    // Simulate form submission
+                    responseMessage.innerHTML = '<p style="color: green;">Thank you for your message, ' + data.name + '! Our team will get back to you within 24 hours. For immediate assistance, please call +91 7060331329.</p>';
+                    
+                    // In a real implementation, you would send this data to your server/AI system
+                    console.log('Form submitted:', data);
+                    
+                    // Reset form
+                    contactForm.reset();
+                });
+            }
+        };
+        
+        // Initialize the chatbot when the page loads
+        window.addEventListener('DOMContentLoaded', () => {
+            chatbot.init();
+        });
+    </script>
+    
+    <style>
+        /* Chat widget styles */
+        #chat-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--primary);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            z-index: 999;
+        }
+        
+        #chat-button i {
+            font-size: 1.5rem;
+        }
+        
+        #chat-widget {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 350px;
+            height: 500px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.2);
+            display: none;
+            flex-direction: column;
+            z-index: 1000;
+            overflow: hidden;
+        }
+        
+        #chat-widget.active {
+            display: flex;
+        }
+        
+        #chat-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        #chat-header h4 {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+        
+        #chat-header button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0 0.5rem;
+        }
+        
+        #chat-messages {
+            flex: 1;
+            padding: 1rem;
+            overflow-y: auto;
+        }
+        
+        .message {
+            margin-bottom: 1rem;
+            padding: 0.8rem 1rem;
+            border-radius: 18px;
+            max-width: 80%;
+            line-height: 1.4;
+        }
+        
+        .message.user {
+            background-color: #e3f2fd;
+            margin-left: auto;
+            border-bottom-right-radius: 5px;
+        }
+        
+        .message.ai {
+            background-color: #f1f1f1;
+            margin-right: auto;
+            border-bottom-left-radius: 5px;
+        }
+        
+        #chat-input {
+            display: flex;
+            padding: 1rem;
+            border-top: 1px solid #eee;
+        }
+        
+        #chat-input input {
+            flex: 1;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 50px;
+            margin-right: 0.5rem;
+        }
+        
+        #chat-input button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 0 1.5rem;
+            cursor: pointer;
+        }
+        
+        @media (max-width: 480px) {
+            #chat-widget {
+                width: 90%;
+                height: 70vh;
+                right: 5%;
+                bottom: 20px;
+            }
+            
+            #chat-button {
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</body>
+</html>
